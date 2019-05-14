@@ -93,6 +93,13 @@ public static void heapsort(int[])
 
   public static void heapsort (int [] data){
     heapify(data);
+    int size = data.length;
+
+    while (size != 1){
+      swap(data, 0 , size-1);
+      size--;
+      pushDown(data,size,0);
+    }
   }
 
 }
