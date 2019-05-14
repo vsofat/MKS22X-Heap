@@ -13,6 +13,18 @@ public class MyHeap{
   */
   private static void pushDown(int[] data,int size,int index) {
 
+  int child1 = 2 * (index) + 1;
+  int child2 = 2 * (index) + 2;
+  int bigger;
+
+  if (size > child2){
+    if (data[child1] > data[child2]){
+      bigger = child1;
+    }
+    else bigger = child2;
+  }
+
+  else bigger = child1; // no child2 so ...
 
   if ((size % 2 == 0 ) && ((2 * index) + 1 == size -1)) {
     if (data[index] < data[(2 * index) + 1]) {
@@ -66,7 +78,11 @@ private static void pushUp(int[]data,int index){
 //We will discuss this today:
 public static void heapify(int[])
 - convert the array into a valid heap. [ should be O(n) ]
+*/
 
+
+
+/*
 public static void heapsort(int[])
 - sort the array [ should be O(nlogn) ] :
 - converting it into a heap
