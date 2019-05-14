@@ -26,24 +26,14 @@ public class MyHeap{
 
   else bigger = child1; // no child2 so ...
 
-  if ((size % 2 == 0 ) && ((2 * index) + 1 == size -1)) {
-    if (data[index] < data[(2 * index) + 1]) {
-      swap(data, index, (2 * index) + 1);
-      return; // do nothing
-    }
-  }
-  else if (
-            (((2 * index) + 2) < size) &&
-            ((data[index] < data[((2 * index) + 1)])) ||
-            (data[index] < data[((2 * index) + 2)])) {
-    if (data[((2 * index) + 1)] > data[((2 * index) + 2)]) {
-      swap(data,index,((2 * index) + 1));
-      pushDown(data,size,((2 * index) + 1));
-    }
-    else {
-      swap(data,index,((2 * index) + 2));
-      pushDown(data,size,((2 * index) + 2));
-    }
+  while (size > bigger && data[bigger] > data[index]){
+    swap(data, bigger, index);
+
+    index = bigger;
+    child1 = 2 * (index) + 1;
+    child2 = 2 * (index) + 2;
+
+
   }
   }
 
