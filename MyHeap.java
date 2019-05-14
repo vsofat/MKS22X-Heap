@@ -33,8 +33,15 @@ public class MyHeap{
     child1 = 2 * (index) + 1;
     child2 = 2 * (index) + 2;
 
-
+    if (size > child2){
+      if (data[child1] > data[child2]){
+        bigger = child1;
+      }
+      else bigger = child2;
+    }
+    else bigger = child1;
   }
+
   }
 
   private static void swap(int[] data, int idx1, int idx2) {
@@ -70,7 +77,11 @@ public static void heapify(int[])
 - convert the array into a valid heap. [ should be O(n) ]
 */
 
-
+  public static void heapify (int[] data){
+    for (int index = data.length - 1; index >=0; index--){
+      pushDown(data, data.length, index);
+    }
+  }
 
 /*
 public static void heapsort(int[])
@@ -79,5 +90,9 @@ public static void heapsort(int[])
 - removing the largest value n-1 times (remove places at end of the sub-array).
 
 */
+
+  public static void heapsort (int [] data){
+    heapify(data);
+  }
 
 }
